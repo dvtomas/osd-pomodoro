@@ -4,6 +4,9 @@
 
 A simple, ultra-lightweight, transparent, unobtrusive pomodoro countdown for Linux. Always on top, yet so small that it doesn't really bother you. And if it does for a moment, just send it a UNIX signal to toggle visibility.
 
+![screenshot](https://bitbucket.org/dvtomas/osd-pomodoro/raw/master/screenshot.png)
+*A screenshot of the counter running in the corner over Gimp*
+
 ## Features
 
  - Uses libxosd2 for achieving pseudo-transparency. Floats  on  top  of all  windows  (is  shaped and unmanaged), everything but the letters is transparent.
