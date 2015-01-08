@@ -1,0 +1,81 @@
+.TH osd\_pomodoro 1 "January 2015" "OSD Pomodoro"
+.SH NAME
+osd\_pomodoro - on-screen pomodoro countdown
+.SH SYNOPSIS
+.B osd\_pomodoro
+[\fIOPTION\fR]...
+.SH DESCRIPTION
+.PP
+A simple, ultra-lightweight, transparent, unobtrusive pomodoro countdown for Linux. Always on top, yet so small that it doesn't really bother you. And if it does for a moment, just send it a UNIX signal to toggle visibility.
+.PP 
+Features:
+
+ - Uses libxosd2 for achieving pseudo-transparency. Floats  on  top  of all  windows  (is  shaped and unmanaged), everything but the letters is transparent.
+ - User font, position, outline, drop  shadow, color, duration of countdown
+ - Can hide/show/toggle visibility upon signal receive. Define keyboard shortcuts in your favourite WM and toggle visibility when if it obscures some part of the screen you need to see.
+ - Compact, easy to modify, free C source code you can alter to suit your needs.
+
+.SH OPTIONS
+.TP
+\fB\-S, \-\-seconds\fR
+Number of seconds for the countdown. Default is 25*60 = 1500 seconds
+.TP
+\fB\-f, \-\-font\fR
+fully qualified font
+.TP
+\fB\-c, \-\-color\fR
+color (default: green)
+.TP
+\fB\-s, \-\-shadow\fR
+drop shadow offset (default: 0)
+.TP
+\fB\-O, \-\-outline\-width\fR
+outline width (default: 0)
+.TP
+\fB\-C, \-\-outline\-color\fR
+outline color (default: black)
+.TP
+\fB\-L, \-\-level\-colors\fR
+list of value:color pairs, for monitors where color can change with value
+.TP
+\fB\-t, \-\-top\fR
+locate at top of screen (default: bottom)
+.TP
+\fB\-v, \-\-vcenter\fR
+locate in vertical center of screen (default: bottom)
+.TP
+\fB\-b, \-\-bottom\fR
+locate at bottom of screen (default)
+.TP
+\fB\-r, \-\-right\fR
+locate at right of screen (default: left)
+.TP
+\fB\-m, \-\-middle\fR
+locate at middle of screen (default: left)
+.TP
+\fB\-l, \-\-left\fR
+locate at left of screen (default)
+.TP
+\fB\-o, \-\-offset\fR
+vertical offset in pixels. (default: 0)
+.TP
+\fB\-H, \-\-hoffset\fR
+horizontal offset in pixels. (default: 0)
+.TP
+\fB\-h, \-\-help\fR
+this help message
+.SH SIGNALS
+osd\_monitors reacts to \fISIGUSR1\fR by hiding itself, to \fISIGUSR2\fR by showing itself again, and to \fISIGHUP\fR by toggling visibility state. This can be used for example in window managers, where a \fBkillall \-HUP osd\_monitors\fR mapped on some keyboard combo can toggle visibility of the clock and thus unobscure the screen when needed.
+.SH EXAMPLES
+.PP
+
+osd_pomodoro -S 1560 -m && mplayer fanfare.mp3 && ./osd_pomodoro -S 300 -c yellow -m
+
+Run the pomodoro timer for 26 minutes (I use the first minute to get psyched), play a mp3 after it's finished, and run another countdown for just 5 minutes, serving as a break. I run this script before each pomodoro. The timer is horizontally centered and placed at the bottom of the screen.
+.PP
+.SH AUTHORS
+Tomas Dvorak (https://bitbucket.org/dvtomas)
+.br
+Inspired by the osd\_clock code by Jon Beckham <leftorium@leftorium.net>
+.SH COPYRIGHT
+DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
