@@ -20,14 +20,14 @@ Suggestions, praises, feature request are welcome.
 Depends on libxosd, under debian:
 
 ```
-apt-get install libxosd-dev
+apt-get install libxt-dev libxosd-dev
 ```
 
 or, maybe
 
 
 ```
-apt-get install libxosd2-dev
+apt-get install libxt-dev libxosd2-dev
 ```
 
 To compile, type ```make```.
